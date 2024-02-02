@@ -4,13 +4,15 @@
     src: "{{ sdi_commons_deploy_basedir }}deploy-xxxx.properties"
   register: passwordfile
 
-- ansible.builtin.set_fact:
-    passwordfile  "{{ passwordfile['content'] | b64decode | map('trim') | list }}"
-
 - name: Convertir contenido a string
   set_fact:
     file_content_str: "{{ passwordfile.content | b64decode }}"
 
+- name: Concatenate a list to string
+  set_fact:
+    file_split_n: "{{ file_content_str.split('\n') }}"
+
 - name: Modificar texto y comentar línea anterior
   set_fact:
-    modified_content: "{{ file_content_str | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) }}"
+    modified_content: "{{ item | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) }}"
+  with_items: "{{ file_split_n }}"
