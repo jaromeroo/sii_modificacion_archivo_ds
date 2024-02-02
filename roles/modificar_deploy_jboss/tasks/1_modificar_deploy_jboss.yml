@@ -20,6 +20,6 @@
 
 - name: listado de modificacion
   debug: 
-    msg: "{{ item }}"
+    msg: "{{ item.modified_content }}"
   with_items:  "{{ contenido.results }}"
   
