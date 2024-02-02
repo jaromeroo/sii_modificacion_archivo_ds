@@ -5,7 +5,11 @@
   register: passwordfile
 
 - ansible.builtin.set_fact:
-    file_content_str: "{{ passwordfile.content | b64decode | decode('utf-8') }}"
+    passwordfile  "{{ passwordfile['content'] | b64decode }}"
+
+- name: Convertir contenido a string
+  set_fact:
+    file_content_str: "{{ passwordfile.content | b64decode }}"
 
 - name: Modificar texto y comentar línea anterior
   set_fact:
