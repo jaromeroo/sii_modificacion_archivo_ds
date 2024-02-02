@@ -20,5 +20,6 @@
 
 - name: listado de modificacion
   debug: 
-    msg: "{{ contenido }}"
+    msg: "{{ item }}"
+  with_items:  "{{ ccontenido }}"
   
