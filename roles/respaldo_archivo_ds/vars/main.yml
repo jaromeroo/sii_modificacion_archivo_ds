@@ -1,0 +1,3 @@
+---
+# vars file for conversion_rut
+ruta_archivo: /opt/jboss-eap-5.1/jboss_as/server/sii/deploy/

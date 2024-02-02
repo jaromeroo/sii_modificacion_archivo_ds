@@ -1,0 +1,21 @@
+---
+- name: fecha y hora
+  ansible.builtin.shell: date "+%Y%m%d%H%M%S"
+  register: fechahora
+
+- name: concatenar nombre de archivo DS con hora y fecha de sistema
+  ansible.builtin.set_fact:
+      nombre_ds_renombre: "{{ fechahora.stdout }}_{{ nombre_ds }}_{{ fechahora.stdout }}"
+
+- name: Respaldo de archivo DataSource de JBOSS
+  ansible.builtin.copy:
+    src: "{{ ruta_archivo }}{{ nombre_ds }}"
+    dest: "{{ ruta_archivo }}{{ nombre_ds_renombre }}"
+
+- name: renombrar archivo de DataSource de JBOSS
+  ansible.builtin.shell: "ls -ltr {{ ruta_archivo }}"
+  register: listado_ruta
+
+- name: mostrar archivo salida de variable
+  ansible.builtin.debug:
+    msg: "{{ listado_ruta.stdout }}"
