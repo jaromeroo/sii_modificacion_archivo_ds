@@ -4,5 +4,8 @@
     src: "{{ sdi_commons_deploy_basedir }}deploy-xxxx.properties"
   register: passwordfile
 
+- debug: msg="{{lookup('file', sdi_commons_deploy_basedir'deploy-xxxx.properties') }}"
+
+
 - ansible.builtin.debug:
     msg:  "{{ passwordfile }}"
