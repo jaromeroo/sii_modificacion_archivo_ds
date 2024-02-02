@@ -19,5 +19,5 @@
 
 - name: listado de modificacion
   debug: 
-    msg: "{{ item }}"
-  with_items: "{{ modified_content }}"
+    msg: "{{ modified_content }}"
+  
