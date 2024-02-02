@@ -5,4 +5,4 @@
   register: passwordfile
 
 - ansible.builtin.debug:
-    msg:  "{{ passwordfile }}"
+    msg:  "{{ passwordfile['content'] | b64decode }}"
