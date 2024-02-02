@@ -1,3 +1,5 @@
 ---
-# vars file for conversion_rut
-ruta_archivo: /opt/jboss-eap-5.1/jboss_as/server/sii/deploy/
+# archivo de variables para modificar archivo en deploy
+sdi_commons_deploy_basedir: /home/adp/SdiCommonsDeploy/deploy
+deploy_properties_files: /home/adp/SdiCommonsDeploy/build
+deploy_basedir: /home/adp/SdiCommonsDeploy/build
