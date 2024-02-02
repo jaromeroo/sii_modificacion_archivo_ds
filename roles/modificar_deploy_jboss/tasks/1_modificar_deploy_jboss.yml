@@ -4,8 +4,9 @@
     src: "{{ sdi_commons_deploy_basedir }}deploy-xxxx.properties"
   register: passwordfile
 
-- debug: msg="{{lookup('file', sdi_commons_deploy_basedir'deploy-xxxx.properties') }}"
+- ansible.builtin.set_fact:
+    file_content_str: "{{ passwordfile['content'] | b64decode | decode('utf-8') }}"
 
-
-- ansible.builtin.debug:
-    msg:  "{{ passwordfile }}"
+- name: Modificar texto y comentar línea anterior
+  set_fact:
+    modified_content: "{{ file_content_str | regex_replace('^(datasource.ARCODS.id=.*$)', '# \\1\ndatasource.{{ variable1 }}.id={{ variable2 }}') }}"
