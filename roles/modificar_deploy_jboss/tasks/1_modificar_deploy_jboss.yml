@@ -5,7 +5,7 @@
   register: passwordfile
 
 - ansible.builtin.set_fact:
-    passwordfile  "{{ passwordfile['content'] | b64decode }}"
+    passwordfile  "{{ passwordfile['content'] | b64decode | list }}"
 
 - name: Convertir contenido a string
   set_fact:
