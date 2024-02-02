@@ -16,3 +16,8 @@
   set_fact:
     modified_content: "{{ item | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) }}"
   with_items: "{{ file_split_n }}"
+
+- name: listado de modificacion
+  debug: 
+    msg: "{{ item }}"
+  with_items: "{{ modified_content }}"
