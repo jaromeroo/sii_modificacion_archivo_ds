@@ -13,4 +13,4 @@
 
 - name: Modificar texto y comentar línea anterior
   set_fact:
-    modified_content: "{{ file_content_str | regex_replace('^(datasource.ARCODS.id=.*$)', 'datasource.test.id=test') }}"
+    modified_content: "{{ file_content_str | replace('^(*$.id=*$)', 'datasource.test.id=test') }}"
