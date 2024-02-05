@@ -20,8 +20,8 @@
 
 - name: contenido
   debug: 
-    msg: "{{ item.modified_content }}"
-  with_items:  "{{ contenido.results }}"
+    msg: "{{ item }}"
+  with_items:  "{{ contenido.stdout }}"
 
 - name: modified_content
   debug: 
