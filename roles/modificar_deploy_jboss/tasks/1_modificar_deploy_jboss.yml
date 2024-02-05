@@ -21,7 +21,7 @@
 - name: contenido
   debug: 
     msg: "{{ item }}"
-  with_items:  "{{ contenido.msg }}"
+  with_items:  "{{ contenido.results }}"
 
 - name: modified_content
   debug: 
