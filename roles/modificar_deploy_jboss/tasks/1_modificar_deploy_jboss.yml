@@ -5,22 +5,28 @@
   register: passwordfile
 
 - name: Convertir contenido a string
-  set_fact:
+  ansible.builtin.set_fact:
     file_content_str: "{{ passwordfile.content | b64decode }}"
 
 - name: Concatenate a list to string
-  set_fact:
+  ansible.builtin.set_fact:
     file_split_n: "{{ file_content_str.split('\n') }}"
 
 - name: Modificar texto y comentar línea anterior
-  set_fact:
+  ansible.builtin.set_fact:
     modified_content: "{{ item | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) | split('\n') }}"
   with_items: "{{ file_split_n }}"
   register: contenido
 
 - name: Debug modified_content
-  debug:
+  ansible.builtin.debug:
     var: item.ansible_facts.modified_content | to_nice_json
+  with_items: "{{ contenido.results }}"
+
+- name: Guardar modified_content en un archivo
+  ansible.builtin.copy:
+    content: "{{ item.ansible_facts.modified_content | to_nice_json }}"
+    dest: "{{ sdi_commons_deploy_basedir }}test"
   with_items: "{{ contenido.results }}"
 
 # - name: Debug contenido
