@@ -1,5 +1,5 @@
 ---
-- name: fecha y hora
+- name: Lectura de archivo de deploy
   ansible.builtin.slurp: 
     src: "{{ sdi_commons_deploy_basedir }}deploy-xxxx.properties"
   register: passwordfile
@@ -14,7 +14,7 @@
 
 - name: Modificar texto y comentar línea anterior
   set_fact:
-    modified_content: "{{ item | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) }}"
+    modified_content: "{{ file_split_n | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) }}"
 
 - name: listado de modificacion
   debug: 
