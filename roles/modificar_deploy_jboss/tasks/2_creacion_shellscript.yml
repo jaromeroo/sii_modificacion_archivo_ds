@@ -1,0 +1,6 @@
+---
+- name: creacion de Shell Script para despliegue de modificacion
+  ansible.builtin.template:
+    src: templates/jboss.j2
+    dest: "{{ SdiCommonsDeploy }}deploy.sh"
+    mode: u=x
