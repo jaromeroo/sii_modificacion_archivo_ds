@@ -18,13 +18,13 @@
   with_items: "{{ file_split_n }}"
   register: contenido
 
-# - name: Debug modified_content
-#   debug:
-#     var: "{{ item }}"
-#   with_items: "{{ ontenido.modified_content }}"
-
-- name: Debug contenido
+- name: Debug modified_content
   debug:
-    msg: "modified_content item: {{ item.modified_content }}"
-  with_items: "{{ contenido.results }}"
+    var: "{{ item }}"
+  with_items: "{{ ontenido.modified_content }}"
+
+# - name: Debug contenido
+#   debug:
+#     msg: "modified_content item: {{ item.modified_content }}"
+#   with_items: "{{ contenido.results }}"
   
