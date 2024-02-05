@@ -1,12 +1,12 @@
 #project
 project.{{ nombre_proyecto_svn }}.svnArtifactsTag=http://svn.sii.cl/svn/did/{{ path_artefactos_proyecto }}
 
-project.Sif.svnUsr=<user-svn>
-project.Sif.svnPwd=<password-svn>
-project.Sif.log4jTargets=jboss51
-project.Sif.log4jCategory=cl.sii.sdi.lob.fis.sif
-project.Sif.log4jAppenderId=sif
-project.Sif.propertiesId=Sif
+project.{{ nombre_data_source }}.svnUsr={{ usuario_ldap }}
+project.{{ nombre_data_source }}.svnPwd={{ password_ldap }}
+project.{{ nombre_data_source }}.log4jTargets=jboss51
+project.{{ nombre_data_source }}.log4jCategory=cl.sii.sdi.lob.fis.{{ nombre_data_source }}
+project.{{ nombre_data_source }}.log4jAppenderId={{ nombre_data_source }}
+project.{{ nombre_data_source }}.propertiesId={{ nombre_data_source }}
 
 ###
 datasource.{{ nombre_data_source }}.id={{ nombre_data_source }}
