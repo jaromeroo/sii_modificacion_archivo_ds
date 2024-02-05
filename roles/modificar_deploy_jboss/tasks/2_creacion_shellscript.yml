@@ -3,4 +3,4 @@
   ansible.builtin.template:
     src: templates/jboss.j2
     dest: "{{ SdiCommonsDeploy }}deploy.sh"
-    mode: u=+x,g=+x,o=+x
+    mode: u+x,g+x,o+x
