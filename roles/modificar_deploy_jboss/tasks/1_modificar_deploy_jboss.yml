@@ -27,7 +27,7 @@
   ansible.builtin.copy:
     content: "{{ item.ansible_facts.modified_content | to_nice_json }}"
     dest: "{{ sdi_commons_deploy_basedir }}test"
-  with_items: "{{ contenido.results }}"
+  
 
 # - name: Debug contenido
 #   debug:
