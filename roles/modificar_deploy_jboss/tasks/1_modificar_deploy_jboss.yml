@@ -20,5 +20,11 @@
 
 - name: Debug modified_content
   debug:
-    var: contenido.modified_content
+    var: "{{ item }}"
+  with_items: "{{ ontenido.modified_content }}"
+
+- name: Debug contenido
+  debug:
+    msg: "modified_content item: {{ item.modified_content }}"
+  with_items: "{{ contenido.results }}"
   
