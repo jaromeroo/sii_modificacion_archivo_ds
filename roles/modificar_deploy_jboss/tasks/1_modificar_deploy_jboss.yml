@@ -18,8 +18,12 @@
   with_items: "{{ file_split_n }}"
   register: contenido
 
-- name: listado de modificacion
+- name: contenido
   debug: 
     msg: "{{ item }}"
   with_items:  "{{ contenido.results }}"
+
+- name: modified_content
+  debug: 
+    msg: "{{ modified_content }}"  
   
