@@ -1,7 +1,7 @@
 ---
-- name: ejecucion de script de deploy de DataSource
-  ansible.builtin.shell: "sh {{ SdiCommonsDeploy }}deploy.sh {{ SdiCommonsDeploy }} {{ deploy_basedir }} {{ sdi_commons_deploy_basedir }}deploy_prod.properties,{{ sdi_commons_deploy_basedir }}{{ nombre_archivo_deploy }}"
-  register: ejecucion_shell_script
+# - name: ejecucion de script de deploy de DataSource
+#   ansible.builtin.shell: "sh {{ SdiCommonsDeploy }}deploy.sh {{ SdiCommonsDeploy }} {{ deploy_basedir }} {{ sdi_commons_deploy_basedir }}deploy_prod.properties,{{ sdi_commons_deploy_basedir }}{{ nombre_archivo_deploy }}"
+#   register: ejecucion_shell_script
 
 - name: Run a script with arguments (using 'cmd' parameter)
   ansible.builtin.script:
