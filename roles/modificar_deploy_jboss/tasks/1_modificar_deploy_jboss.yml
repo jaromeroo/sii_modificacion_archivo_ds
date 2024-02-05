@@ -15,11 +15,19 @@
 - name: Modificar texto y comentar línea anterior
   set_fact:
     modified_content: "{{ item | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) }}"
-  with_items: "{{ file_split_n }}"
-  register: contenido
 
 - name: listado de modificacion
   debug: 
-    msg: "{{ item }}"
-  with_items:  "{{ contenido.results }}"
+    msg: "{{ modified_content }}"
+
+# - name: Modificar texto y comentar línea anterior
+#   set_fact:
+#     modified_content: "{{ item | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) }}"
+#   with_items: "{{ file_split_n }}"
+#   register: contenido
+
+# - name: listado de modificacion
+#   debug: 
+#     msg: "{{ item }}"
+#   with_items:  "{{ contenido.results }}"
   
