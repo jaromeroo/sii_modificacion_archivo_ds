@@ -5,3 +5,12 @@ deploy_properties_files: /home/adp/SdiCommonsDeploy/build/
 deploy_basedir: /home/adp/SdiCommonsDeploy/build/
 variable1: "NEWDS"
 variable2: "NEWID"
+nombre_proyecto_svn: xxxxxxxx
+path_artefactos_proyecto: xxxxxxx
+nombre_data_source: xxxxxxxx
+string_conexion: xxxxxxx
+usuario_oracle: xxxxxxx
+password_oracle: xxxxxxx
+granja_ejecucion: xxxxxxx
+
+

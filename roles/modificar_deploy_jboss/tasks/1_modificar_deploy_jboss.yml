@@ -1,35 +1,54 @@
 ---
-- name: Lectura de archivo de deploy
-  ansible.builtin.slurp: 
-    src: "{{ sdi_commons_deploy_basedir }}deploy-xxxx.properties"
-  register: passwordfile
+- name: fecha y hora
+  ansible.builtin.shell: date "+%Y%m%d%H%M%S"
+  register: fechahora
 
-- name: Convertir contenido a string
+- name: concatenar nombre de archivo DS con hora y fecha de sistema
   ansible.builtin.set_fact:
-    file_content_str: "{{ passwordfile.content | b64decode }}"
+      nombre_ds_renombre: "{{ fechahora.stdout }}_deploy-xxxx.properties_{{ fechahora.stdout }}"
 
-- name: Concatenate a list to string
-  ansible.builtin.set_fact:
-    file_split_n: "{{ file_content_str.split('\n') }}"
+- name: Respaldo de archivo DataSource de JBOSS
+  ansible.builtin.shell: "mv {{ sdi_commons_deploy_basedir }}deploy-xxxx.properties {{ sdi_commons_deploy_basedir }}{{ nombre_ds_renombre }}"
 
-- name: Modificar texto y comentar línea anterior
-  ansible.builtin.set_fact:
-    modified_content: "{{ item | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) | split('\n') }}"
-  with_items: "{{ file_split_n }}"
-  register: contenido
+- name: crear archivo install-config.yaml
+  ansible.builtin.template:
+    src: templates/deploy-xxxx.properties.j2
+    dest: "{{ sdi_commons_deploy_basedir }}deploy-xxxx.properties"
 
-- name: Debug modified_content
-  ansible.builtin.debug:
-    var: item.ansible_facts.modified_content | to_nice_json
-  with_items: "{{ contenido.results }}"
 
-- name: Guardar modified_content en un archivo
-  ansible.builtin.copy:
-    content: "{{ contenido.modified_content }}"
-    dest: "{{ sdi_commons_deploy_basedir }}test"
+
+
+# - name: Lectura de archivo de deploy
+#   ansible.builtin.slurp: 
+#     src: "{{ sdi_commons_deploy_basedir }}deploy-xxxx.properties"
+#   register: passwordfile
+
+# - name: Convertir contenido a string
+#   ansible.builtin.set_fact:
+#     file_content_str: "{{ passwordfile.content | b64decode }}"
+
+# - name: Concatenate a list to string
+#   ansible.builtin.set_fact:
+#     file_split_n: "{{ file_content_str.split('\n') }}"
+
+# - name: Modificar texto y comentar línea anterior
+#   ansible.builtin.set_fact:
+#     modified_content: "{{ item | regex_replace('^(datasource\\..*\\.id=)(.*)$', '# \\1\n' + 'datasource.' + variable1 + '.id=' + variable2) | split('\n') }}"
+#   with_items: "{{ file_split_n }}"
+#   register: contenido
+
+# - name: Debug modified_content
+#   ansible.builtin.debug:
+#     var: item.ansible_facts.modified_content | to_nice_json
+#   with_items: "{{ contenido.results }}"
+
+# - name: Guardar modified_content en un archivo
+#   ansible.builtin.copy:
+#     content: "{{ item.ansible_facts.modified_content | to_nice_json }}"
+#     dest: "{{ sdi_commons_deploy_basedir }}test"
   
 
-# - name: Debug contenido
+# # - name: Debug contenido
 #   debug:
 #     msg: "modified_content item: {{ item.modified_content }}"
 #   with_items: "{{ contenido.results }}"
