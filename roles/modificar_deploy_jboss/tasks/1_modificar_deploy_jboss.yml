@@ -3,11 +3,11 @@
   ansible.builtin.shell: date "+%Y%m%d%H%M%S"
   register: fechahora
 
-- name: concatenar nombre de archivo DS con hora y fecha de sistema
+- name: concatenar nombre de atchivo de deploy con hora y fecha de sistema
   ansible.builtin.set_fact:
       nombre_ds_renombre: "{{ fechahora.stdout }}_{{ nombre_archivo_deploy }}_{{ fechahora.stdout }}"
 
-- name: Respaldo de archivo DataSource de JBOSS
+- name: Respaldo de archivo de deploy de JBOSS
   ansible.builtin.shell: "mv {{ sdi_commons_deploy_basedir }}{{ nombre_archivo_deploy }} {{ sdi_commons_deploy_basedir }}{{ nombre_ds_renombre }}"
 
 - name: crear archivo de deploy
