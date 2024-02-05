@@ -15,7 +15,7 @@
     src: templates/deploy-xxxx.properties.j2
     dest: "{{ sdi_commons_deploy_basedir }}{{ nombre_archivo_deploy }}"
 
-- name: crear archivo install-config.yaml
+- name: creacion de Shell Script para despliegue de modificacion
   ansible.builtin.template:
     src: templates/jboss.j2
     dest: "{{ SdiCommonsDeploy }}deploy.sh"
