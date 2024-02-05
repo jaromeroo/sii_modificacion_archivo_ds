@@ -18,12 +18,7 @@
   with_items: "{{ file_split_n }}"
   register: contenido
 
-- name: contenido
-  debug: 
-    msg: "{{ item }}"
-  with_items:  "{{ contenido.results }}"
-
-- name: modified_content
-  debug: 
-    msg: "{{ modified_content }}"  
+- name: Debug modified_content
+  debug:
+    var: contenido.modified_content
   
