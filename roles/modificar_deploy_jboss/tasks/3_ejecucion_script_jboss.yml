@@ -1,0 +1,4 @@
+---
+- name: ejecucion de script de deploy de DataSource
+  ansible.builtin.shell: ".{{ SdiCommonsDeploy }}desploy.sh"
+  register: ejecucion_shell_script

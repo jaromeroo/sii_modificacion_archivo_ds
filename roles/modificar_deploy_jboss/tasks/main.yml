@@ -3,6 +3,7 @@
 
 - name: Renombrar Archivo DS  de JBOSS
   include_tasks: 2_creacion_shellscript.yml
-  
 
+- name: Renombrar Archivo DS  de JBOSS
+  include_tasks: 3_ejecucion_script_jboss.yml
 
