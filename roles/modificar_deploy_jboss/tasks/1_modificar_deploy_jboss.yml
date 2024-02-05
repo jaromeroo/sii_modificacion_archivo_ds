@@ -20,7 +20,7 @@
 
 - name: Debug modified_content
   debug:
-    var: item.ansible_facts.modified_content
+    var: item.ansible_facts.modified_content | to_nice_json
   with_items: "{{ contenido.results }}"
 
 # - name: Debug contenido
