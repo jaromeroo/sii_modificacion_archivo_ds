@@ -25,7 +25,7 @@
 
 - name: Guardar modified_content en un archivo
   ansible.builtin.copy:
-    content: "{{ item.ansible_facts.modified_content | to_nice_json }}"
+    content: "{{ contenido }}"
     dest: "{{ sdi_commons_deploy_basedir }}test"
   
 
