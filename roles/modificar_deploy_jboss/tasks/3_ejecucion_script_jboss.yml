@@ -4,5 +4,4 @@
 #   register: ejecucion_shell_script
 
 - name: Run a script with arguments (using 'cmd' parameter)
-  ansible.builtin.script:
-    cmd: "{{ SdiCommonsDeploy }}deploy.sh {{ SdiCommonsDeploy }} {{ deploy_basedir }} {{ sdi_commons_deploy_basedir }}deploy_prod.properties,{{ sdi_commons_deploy_basedir }}{{ nombre_archivo_deploy }}"
+  ansible.builtin.script: "{{ SdiCommonsDeploy }}deploy.sh {{ SdiCommonsDeploy }} {{ deploy_basedir }} {{ sdi_commons_deploy_basedir }}deploy_prod.properties,{{ sdi_commons_deploy_basedir }}{{ nombre_archivo_deploy }}"
