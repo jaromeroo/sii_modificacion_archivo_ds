@@ -21,7 +21,7 @@
 - name: Debug modified_content
   debug:
     var: "{{ item }}"
-  with_items: "{{ ontenido.ansible_facts }}"
+  with_items: "{{ contenido.ansible_facts }}"
 
 # - name: Debug contenido
 #   debug:
