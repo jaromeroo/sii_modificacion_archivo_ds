@@ -3,6 +3,7 @@
 sdi_commons_deploy_basedir: /home/adp/SdiCommonsDeploy/deploy/
 deploy_properties_files: /home/adp/SdiCommonsDeploy/build/
 deploy_basedir: /home/adp/SdiCommonsDeploy/build/
+SdiCommonsDeploy: /home/adp/SdiCommonsDeploy/
 
 
 

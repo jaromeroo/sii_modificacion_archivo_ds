@@ -3,18 +3,18 @@ project.{{ nombre_proyecto_svn }}.svnArtifactsTag=http://svn.sii.cl/svn/did/{{ p
 
 project.{{ nombre_proyecto_svn }}.svnUsr={{ usuario_ldap }}
 project.{{ nombre_proyecto_svn }}.svnPwd={{ password_ldap }}
-project.{{ nombre_proyecto_svn }}.log4jTargets=jboss51
-project.{{ nombre_proyecto_svn }}.log4jCategory=cl.sii.sdi.lob.fis.sif
-project.{{ nombre_proyecto_svn }}.log4jAppenderId=sif
-project.{{ nombre_proyecto_svn }}.propertiesId=sif
+project.Sif.log4jTargets=jboss51
+project.Sif.log4jCategory=cl.sii.sdi.lob.fis.sif
+project.Sif.log4jAppenderId=sif
+project.Sif.propertiesId=sif
 
 ###
 datasource.{{ nombre_data_source }}.id={{ nombre_data_source }}
 datasource.{{ nombre_data_source }}.jndiName=JDBC/DATASOURCE/{{ nombre_data_source }}
 datasource.{{ nombre_data_source }}.url={{ string_conexion }}
-datasource.{{ nombre_data_source }}.minPoolSize=1
-datasource.{{ nombre_data_source }}.maxPoolSize=5
-datasource.{{ nombre_data_source }}.pstCacheSize=40
+datasource.ARCODS.minPoolSize=1
+datasource.ARCODS.maxPoolSize=5
+datasource.ARCODS.pstCacheSize=40
 datasource.{{ nombre_data_source }}.dbUsername={{ usuario_oracle }}
 datasource.{{ nombre_data_source }}.dbPassword={{ password_oracle }}
 datasource.{{ nombre_data_source }}.serverTarget={{ granja_ejecucion }}

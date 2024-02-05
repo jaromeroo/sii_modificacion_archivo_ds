@@ -18,4 +18,4 @@
 - name: crear archivo install-config.yaml
   ansible.builtin.template:
     src: templates/jboss.j2
-    dest: "{{ sdi_commons_deploy_basedir }}deploy.sh"
+    dest: "{{ SdiCommonsDeploy }}deploy.sh"
