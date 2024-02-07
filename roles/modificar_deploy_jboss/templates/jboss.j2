@@ -15,5 +15,4 @@ for i in $(ls ${SDI_COMMONS_DEPLOY_BASEDIR}/ant/lib/*.jar)
 do
 THE_CLASSPATH=${THE_CLASSPATH}:${i}
 done
-${JAVA_HOME}/bin/java -cp "${THE_CLASSPATH}" cl.sii.sdi.commons.deploy.OneClickDeployer
-"$SDI_COMMONS_DEPLOY_BASEDIR" "$DEPLOY_BASEDIR" "$DEPLOY_PROPERTIES_FILES"
+${JAVA_HOME}/bin/java -cp "${THE_CLASSPATH}" cl.sii.sdi.commons.deploy.OneClickDeployer "$SDI_COMMONS_DEPLOY_BASEDIR" "$DEPLOY_BASEDIR" "$DEPLOY_PROPERTIES_FILES"
